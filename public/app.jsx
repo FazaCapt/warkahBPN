@@ -12,7 +12,7 @@ var Greater = React.createClass({
         return(
             <div>
                 <h1>Hello {name}</h1>
-                <p>this is {message}</p>
+                <p>this is {message + '!!!'} </p>
             </div>
         )
     }
