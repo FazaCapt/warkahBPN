@@ -15,10 +15,10 @@ var Greater = React.createClass({
     }
 });
 
-
+var project = 'Warkah BPN'
 
 
 ReactDOM.render(
-    <Greater/>,
+    <Greater name={project}/>,
     document.getElementById('app')
 );
