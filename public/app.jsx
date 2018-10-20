@@ -1,4 +1,9 @@
 var Greater = React.createClass({
+    getDefaultProps: function(){
+        return{
+            name: 'React'
+        };
+    },
     render: function(){
         var name = this.props.name;
         return(
@@ -14,6 +19,6 @@ var Greater = React.createClass({
 
 
 ReactDOM.render(
-    <Greater name="faza"/>,
+    <Greater/>,
     document.getElementById('app')
 );
