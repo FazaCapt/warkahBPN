@@ -1,5 +1,3 @@
-function greeter(){
-    document.write('Form greeter function');
-}
+var greeter = require('./components/Greeter');
 
 greeter();
