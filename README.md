@@ -1,0 +1,1 @@
+Cara Membuat Webpack: webpack ./public/app.js ./public/bundle.js
