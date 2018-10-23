@@ -10,10 +10,20 @@ var GreeterMessage = React.createClass({
 })
 
 var GreeterForm = React.createClass({
+    onFormSubmit: function(e){
+        e.preventDefault();
+
+        var name = this.refs.name.value;
+
+        if (name.length > 0){
+            this.refs.name.value = '';
+            this.props.onNewName(name);
+        }
+    },
     render: function(){
         return(
             <div>
-                <form>
+                <form onSubmit={this.onFormSubmit}>
                 <input type="text" ref="name"/>
                 <button>Set Name 2</button>
                 </form>
@@ -21,10 +31,6 @@ var GreeterForm = React.createClass({
         )
     }
 })
-
-
-
-
 
 var Greeter = React.createClass({
     getDefaultProps: function(){
@@ -39,19 +45,10 @@ var Greeter = React.createClass({
             name: this.props.name
         };
     },
-    onButtonClick: function(e){
-        e.preventDefault();
-
-        var nameRef = this.refs.name;
-        var name = nameRef.value;
-        nameRef.value = '';
-
-        // algoritma supaya waktu diClik halaman tidak kosong
-        if (typeof name === 'string' && name.length > 0) {
+    handleNewName: function(name){
             this.setState({
                 name: name
             });
-        }
     },
 
     render: function(){
@@ -62,13 +59,7 @@ var Greeter = React.createClass({
                 <h1>Hello {name}</h1>
                 <p>Pesan: {message + '!!!'} </p>
                 <GreeterMessage/>
-            
-
-                <form onSubmit={this.onButtonClick}>
-                <input type="text" ref="name"/>
-                <button>Set Name</button>
-                </form>
-                <GreeterForm/>
+                <GreeterForm onNewName={this.handleNewName}/>
             </div>
         )
     }
