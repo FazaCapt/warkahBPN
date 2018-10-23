@@ -1,8 +1,8 @@
 var Greater = React.createClass({
     getDefaultProps: function(){
         return{
-            name: 'React',
-            message: 'Bikin applikasi ReactJS Default'
+            name: 'Faza',
+            message: 'Pesan ini dari Default Props'
 
         };
     },
@@ -14,11 +14,16 @@ var Greater = React.createClass({
     onButtonClick: function(e){
         e.preventDefault();
 
-        var name = this.refs.name.value;
+        var nameRef = this.refs.name;
+        var name = nameRef.value;
+        nameRef.value = '';
 
-        this.setState({
-            name: name
-        });
+        // algoritma supaya waktu diClik halaman tidak kosong
+        if (typeof name === 'string' && name.length > 0) {
+            this.setState({
+                name: name
+            });
+        }
     },
 
     render: function(){
@@ -27,7 +32,7 @@ var Greater = React.createClass({
         return(
             <div>
                 <h1>Hello {name}</h1>
-                <p>this is {message + '!!!'} </p>
+                <p>Pesan: {message + '!!!'} </p>
 
                 <form onSubmit={this.onButtonClick}>
                 <input type="text" ref="name"/>
@@ -39,9 +44,7 @@ var Greater = React.createClass({
 });
 
 var project = 'Warkah BPN';
-var pesan = 'Harus jadi applikasi keren nih';
-
-
+var pesan = 'Pesan dari props manual';
 
 ReactDOM.render(
     <Greater name={project} message={pesan} />,
