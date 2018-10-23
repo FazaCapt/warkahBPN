@@ -1,9 +1,12 @@
 var GreeterMessage = React.createClass({
     render: function(){
+        var name = this.props.name;
+        var message = this.props.message;
+
         return(
             <div>
-                <h1>Some H1</h1>
-                <p>Some Paragraph</p>
+                <h1>Hello {name}!</h1>
+                <p>INI PESAN: {message}</p>
             </div>
         )
     }
@@ -25,7 +28,7 @@ var GreeterForm = React.createClass({
             <div>
                 <form onSubmit={this.onFormSubmit}>
                 <input type="text" ref="name"/>
-                <button>Set Name 2</button>
+                <button>Set Name</button>
                 </form>
             </div>
         )
@@ -56,19 +59,16 @@ var Greeter = React.createClass({
         var message = this.props.message;
         return(
             <div>
-                <h1>Hello {name}</h1>
-                <p>Pesan: {message + '!!!'} </p>
-                <GreeterMessage/>
+                <GreeterMessage name={name} message={message}/>
                 <GreeterForm onNewName={this.handleNewName}/>
             </div>
         )
     }
 });
 
-var project = 'Warkah BPN';
-var pesan = 'Pesan dari props manual';
+var firstName = "Faza Fahamsyah"
 
 ReactDOM.render(
-    <Greeter name={project} message={pesan} />,
+    <Greeter name={firstName}/>,
     document.getElementById('app')
 );
