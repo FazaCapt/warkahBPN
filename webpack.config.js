@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './public/app.jsx',
+    entry: './app/app.jsx',
     output: {
         path: __dirname,
         filename: './public/bundle.js'
@@ -7,9 +7,7 @@ module.exports = {
     resolve:{
         root: __dirname,
         alias: {
-            Greeter: 'public/components/Greeter',
-            GreeterForm: 'public/components/GreeterForm',
-            GreeterMessage: 'public/components/GreeterMessage'
+           
         },
         extensions: ['', '.js', '.jsx']
     },
