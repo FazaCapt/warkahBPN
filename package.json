@@ -19,7 +19,8 @@
   "dependencies": {
     "express": "^4.16.4",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "react-router": "^4.3.1"
   },
   "devDependencies": {
     "@babel/preset-stage-0": "^7.0.0",
